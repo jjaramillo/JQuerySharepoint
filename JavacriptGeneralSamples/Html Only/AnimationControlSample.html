@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>$.fadeToggle</title>
+    <style type="text/css">
+        .element-container {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+
+        .blue-box {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+        }
+
+        .trigger-container {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+
+            .trigger-container button {
+                display: block;
+                margin: 10px auto;
+                height: 24px;
+            }
+
+            .trigger-container input[type="text"] {
+                width: 110px;
+                margin: 2px 2px;
+            }
+
+            .trigger-container label {
+                font-weight: bold;
+                font-family: Calibri;
+                font-size: 12px;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="element-container">
+            <div class="blue-box" id="fade-target"></div>
+        </div>
+        <div class="trigger-container">
+            <label for="easing-type">Easing</label><input type="text" id="easing-type" name="easing-type" value="swing" />
+            <label for="animation-time">Duracion</label><input type="text" id="animation-time" name="animation-time" value="400" />            
+            <button id="fade-reset">Reiniciar</button>
+            <button id="animation-stop">Pausar animacion actual</button>
+            <button id="animation-stop-all">Detener todo</button>
+            <button id="queue-status">Ver Cola</button>
+            <button id="queue-clean">Limpiar Cola</button>
+            <button id="fade-to-trigger">Alternar!</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#queue-clean').click(
+               function () {
+                   $('#fade-target').clearQueue();
+               }
+           );
+            $('#animation-stop').click(
+                function () {
+                    $('#fade-target').stop();
+                }
+            );
+            $('#animation-stop-all').click(
+                function () {
+                    $('#fade-target').finish();
+                }
+            );
+            $('#queue-status').click(
+                function () {
+                    var queue = $('#fade-target').queue('fx');
+                    console.log(queue);
+                }
+            );
+            $('#fade-to-trigger').click(
+                function () {
+                    var easing = $('#easing-type').val();
+                    var animationDuration = parseInt($('#animation-time').val());                    
+                    var options =
+                        {
+                            duration: animationDuration,
+                            easing: easing
+                            // Agrega la animacion a la cola de animaciones
+                            // O a la cola identificada por el string
+                            // ,queue: true
+                            // se invoca esta funcion al finalizar la animacion
+                            , complete: function () { console.log('Animacion Finalizada'); }
+                            // se invoca esta funcion al iniciar la animacion
+                            , start: function () { console.log('Animacion Iniciada'); }
+                            // se invoca al finalizar la funcion independiente
+                            // de que finalice exitosamente, o falle
+                            // ,always: function(){ }
+                            // se invoca cuando la animacion finaliza de manera abrupta
+                             , fails: function () {
+                                 console.log('Detuvieron la animacion a las malas :(')
+                             }
+                        };
+                    $('#fade-target').fadeToggle(options);
+                    return false;
+                }
+            );            
+            $('#fade-reset').click(
+                function () {
+                    $('#fade-target').removeAttr('style');
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

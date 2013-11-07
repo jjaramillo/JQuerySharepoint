@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ejemplos de Javascript</title>
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+
+        .rounded-corner-0 {
+            background-color: red;
+            position: relative  ;
+            top: 16px;
+        }
+
+        .rounded-corner-1 {
+            background-color: blue;
+            position: relative;
+            top: 16px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            border-width: 5px;
+            border-style: solid;
+            padding: 10px;
+            margin: 3px;
+        }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {            
+            $('div').click(function ()
+            {                
+                var currentDiv = $(this);
+                var selectedDiv = $(document).data('selected-element');
+                if (selectedDiv) {
+                    console.log(selectedDiv);
+                    selectedDiv.toggleClass('rounded-corner-1');
+                }
+                //$(document).data('selected-element').toggleClass('rounded-corner-1');
+                $(document).data('selected-element', currentDiv);
+                currentDiv.toggleClass('rounded-corner-1');     
+                
+
+            });
+        });
+    </script>
+            
+</head>
+<body>
+    <div id="1" class="rounded-corner-0">
+
+    </div>
+    <div id="0" class="rounded-corner-0">
+
+    </div>
+    <div id="3" class="rounded-corner-0">
+
+    </div>
+    <div id="4" class="rounded-corner-0">
+
+    </div>  
+    <div id="5" class="rounded-corner-0">
+
+    </div>  
+    <div id="6" class="rounded-corner-0">
+
+    </div>          
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>Jquery Parallax Scrolling Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css">
+    <link rel="stylesheet" type="text/css" href="css/tut.css">    
+    
+</head>
+
+<body>
+	<div id="cloud1" class="clouds">
+    	<div id="clouds-small"></div>
+    </div><!-- end clouds -->
+    <div id="cloud2" class="clouds">
+        <div id="clouds-big"></div>
+    </div><!-- end clouds -->
+	<div id="header">
+   		<h1 id="logo">Paneles con Nubes!</h1>
+    	<ul id="menu">
+       	  <li><a href="#box1" class="link">Inicio</a></li>
+            <li><a href="#box2" class="link">Caja 1</a></li>
+            <li><a href="#box3" class="link">Caja 2</a></li>
+            <li><a href="#box4" class="link">Caja 3</a></li>
+      </ul>
+</div><!-- end header -->
+	<div id="wrapper">
+    	<ul id="mask">
+        	<li id="box1" class="box">
+            	<a name="box1"></a>
+                <div class="content"><div class="inner">Inicio</div></div>
+            </li><!-- end box1 -->
+            <li id="box2" class="box">
+            	<a name="box2"></a>
+                <div class="content"><div class="inner">Caja 1</div></div>
+            </li><!-- end box2 -->
+            <li id="box3" class="box">
+            	<a name="box3"></a>
+                <div class="content"><div class="inner">Caja 2</div></div>
+            </li><!-- end box3 -->
+            <li id="box4" class="box">
+            	<a name="box4"></a>
+                <div class="content"><div class="inner">caja 3</div></div>
+            </li><!-- end box4 -->
+        </ul><!-- end mask -->
+    </div><!-- end wrapper -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                var smallClouds = $('#cloud-small');
+                var bigClouds = $('#clouds-big');
+                var anchors = $('a[href*="#box"]');
+                var smallCloudWidth = smallClouds.width();
+                var bigCloudWidth = bigClouds.width();
+                smallClouds.css('position', 'relative');
+                bigClouds.css('position', 'relative');
+                anchors.click(function ()
+                {
+                    smallClouds.animate
+                        (
+                            {
+                                left: -smallCloudWidth,                                
+                            }, 1000
+                            , function () { }
+                        );
+                    bigClouds.animate
+                        (
+                        {
+                            left: -bigCloudWidth                            
+                        }, 1000
+                    );
+                });
+            }
+        );
+    </script>
+</body>
+</html>
