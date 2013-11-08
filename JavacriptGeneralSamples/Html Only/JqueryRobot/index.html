@@ -26,6 +26,50 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                var robot = $('#full-robot');
+                var camino = $('#ground');
+                var longitudCamino = camino.width();
+
+                var cabeza = $('#branding');
+                var cuerpoSuperior = $('#content');
+                var cuerpoInferior = $('#sec-content');
+                var piernas = $('#footer');
+
+                moverElementoArriba(cabeza);
+                moverElementoAbajo(cuerpoSuperior);
+                moverElementoArriba(cuerpoInferior);
+                moverElementoAbajo(piernas);
+
+                moverElementoDerecha(robot, (longitudCamino / 2) - (robot.width() / 2), 2000);
+
+
+
+
+            }
+        );
+        function moverElementoDerecha(elemento, valorDerecha, velocidad) {
+            elemento.animate(
+                {
+                    left: valorDerecha
+                }, velocidad);
+        }
+
+        function moverElementoArriba(elemento) {
+            elemento.animate({
+                top: "-=5"
+            }, 200, function () { moverElementoAbajo(elemento); });
+        }
+
+        function moverElementoAbajo(elemento) {
+            elemento.animate({
+                top: "+=5"
+            }, 200, function () { moverElementoArriba(elemento); });
+        }
+    </script>
 </body>
 </html>
