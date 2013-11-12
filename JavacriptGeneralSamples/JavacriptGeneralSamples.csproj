@@ -62,6 +62,10 @@
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-big.png" />
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-small.png" />
     <Content Include="Html Only\CloudSimpleSample\images\Logo.png" />
+    <Content Include="Html Only\JQuery.UI\ColorAnimation.html" />
+    <Content Include="Html Only\JQuery.UI\EasingAlgorithComparison.html" />
+    <Content Include="Html Only\JQuery.UI\EffectSample.html" />
+    <Content Include="Html Only\JQuery.UI\ToogleUISample.html" />
     <Content Include="Html Only\JqueryRobot\css\robot.css" />
     <Content Include="Html Only\JqueryRobot\images\clouds-01.png" />
     <Content Include="Html Only\JqueryRobot\images\clouds-02.png" />
@@ -73,6 +77,7 @@
     <Content Include="Html Only\JqueryRobot\images\robot-torso.png" />
     <Content Include="Html Only\JqueryRobot\images\sun.png" />
     <Content Include="Html Only\JqueryRobot\index.html" />
+    <Content Include="Html Only\js\Plugins\bgpositionHook.js" />
     <Content Include="Html Only\Postcard\images\cloud1.png" />
     <Content Include="Html Only\Postcard\images\cloud2.png" />
     <Content Include="Html Only\Postcard\images\cloud3.png" />

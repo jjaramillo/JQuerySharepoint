@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Comparacion de comportamiento de algoritmos de easing</title>
+    <style type="text/css">
+        .ball {
+            background-color:blue;
+            border-radius:15px;
+            position:relative;
+            width:25px;
+            height:25px;
+            margin-top:2px;
+            margin-bottom:2px;
+            top:-20px;
+            
+        }
+        .track {
+
+            border-color:gray;
+            border-width:1px;
+            border-style:solid;
+            height:29px;
+            margin:2px auto;
+            width:25%;
+        }
+        .easing-type {
+            top:-10px;
+            position:relative;
+            background-color:black;
+            color:white;
+            text-transform:capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>
+    <div class="track">
+        <span class="easing-type">blah</span>
+        <div class="ball"></div>
+    </div>    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        function animateRacer(racer, leftPosition, duration, easing) {
+            racer.animate({ 'left': leftPosition }, duration, easing, function () { racer.animate({ 'left': 0 }, duration, easing); });
+        }
+        var easingTypes = ["linear", "swing", "easeInQuad", "easeOutQuad", "easeInOutQuad", "easeInCubic", "easeOutCubic", "easeInOutCubic", "easeInQuart", "easeOutQuart",
+        "easeInOutQuart", "easeInQuint", "easeOutQuint", "easeInOutQuint", "easeInExpo", "easeOutExpo", "easeInOutExpo", "easeInSine", "easeOutSine", "easeInOutSine", "easeInCirc",
+        "easeOutCirc", "easeInOutCirc", "easeInElastic", "easeOutElastic", "easeInOutElastic", "easeInBack", "easeOutBack", "easeInOutBack", "easeInBounce", "easeOutBounce", "easeInOutBounce"];
+        $(document).ready(function () {
+            $('.track').each(function (index)
+            {
+                var track = $(this);
+                var racer = track.children('.ball');
+                var easingTypeLabel = track.children('.easing-type');                
+                var trackLenght = track.width();
+                animateRacer(racer, trackLenght - racer.width(), 5000, easingTypes[index]);
+                //racer.animate({ 'left': trackLenght - racer.width() }, 5000, easingTypes[index]);
+                easingTypeLabel.text((index+1) + " - "+ easingTypes[index]);
+            });            
+        });
+    </script>
+</body>
+</html>

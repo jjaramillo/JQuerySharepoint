@@ -28,11 +28,21 @@
         </div>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="../js/Plugins/bgpositionHook.js"></script>
     <script type="text/javascript">
+        const CTRL_DIST = 800;
         $(document).ready(
             function () {
+                
                 var robot = $('#full-robot');
                 var camino = $('#ground');
+                var nubesPequenas = $('#cloud-01');
+                var nubesGrandas = $('#cloud-02');
+                var montanias = $('#mountains-03');
+                var arboles = $('#trees-04');
+
+
+
                 var longitudCamino = camino.width();
 
                 var cabeza = $('#branding');
@@ -45,18 +55,58 @@
                 moverElementoArriba(cuerpoInferior);
                 moverElementoAbajo(piernas);
 
-                moverElementoDerecha(robot, (longitudCamino / 2) - (robot.width() / 2), 2000);
+                moverElementoDerecha(robot, (longitudCamino / 2) - (robot.width() / 2), 5000,
+                    {
+                        nubesPequenias: nubesPequenas,
+                        nubesGrandes: nubesGrandas,
+                        montanias: montanias,
+                        camino: camino
+                    });
+                moverElementoIzquierda(camino, CTRL_DIST, 5000, moverElementoIzquierda);
+                moverElementoIzquierda(nubesGrandas, CTRL_DIST, 5000, moverElementoIzquierda);
+                moverElementoIzquierda(nubesPequenas, CTRL_DIST, 5000, moverElementoIzquierda);
+                moverElementoIzquierda(montanias, CTRL_DIST, 5000, moverElementoIzquierda);
 
 
 
 
             }
         );
-        function moverElementoDerecha(elemento, valorDerecha, velocidad) {
+
+        function detenerAnimacion(elemento) {
+            elemento.stop();
+
+        }
+
+        function reconfigurarEscenario(escenario) {
+
+            var maxWidth = $('#wrapper').width();
+
+            detenerAnimacion(escenario.camino);
+            detenerAnimacion(escenario.montanias);
+            detenerAnimacion(escenario.nubesGrandes);
+            detenerAnimacion(escenario.nubesPequenias);
+
+            moverElementoIzquierda(escenario.camino, 9999 - (maxWidth + CTRL_DIST), 25000);
+            moverElementoIzquierda(escenario.montanias, 9999 - (maxWidth + CTRL_DIST), 25000);
+            moverElementoIzquierda(escenario.nubesGrandes, 9999 - (maxWidth + CTRL_DIST), 25000);
+            moverElementoIzquierda(escenario.nubesPequenias, 9999 - (maxWidth + CTRL_DIST), 25000);
+
+        }
+
+        function moverElementoDerecha(elemento, valorDerecha, velocidad, escenario) {
             elemento.animate(
                 {
                     left: valorDerecha
-                }, velocidad);
+                }, velocidad, function () { reconfigurarEscenario(escenario); });
+        }
+
+        function moverElementoIzquierda(elemento, valorIzquierda, tiempo, callback) {
+            elemento.animate(
+                {
+                    backgroundPositionX: '-=' + valorIzquierda
+
+                }, tiempo, 'linear', function () { if (callback) callback(elemento, valorIzquierda, tiempo); });
         }
 
         function moverElementoArriba(elemento) {
