@@ -45,7 +45,7 @@
             $('#accordion-sample-1').accordion();
             var options = {
                 // Se dispara una vez el acordeon es creado
-                active: 0,
+                active: 1,
                 // opciones de configuracion de animacion
                 animate:
                     {
@@ -53,21 +53,21 @@
                         duration: parseInt(animationDuration.val())
                     },
                 create: function (event, ui) {
-                    //console.log("Panel de acordeon creado");
-                    //console.log(event);
-                    //console.log(ui);
+                    console.log("Panel de acordeon creado");
+                    console.log(event);
+                    console.log(ui);
                 },
                 // se dispara despues de cambiar de panel
                 activate: function (event, ui) {
-                    //console.log("Panel de acordeon activado");
-                    //console.log(event);
-                    //console.log(ui);
+                    console.log("Panel de acordeon activado");
+                    console.log(event);
+                    console.log(ui);
                 },
                 // Se dispara antes de cambiar de panel
                 beforeActivate: function (event, ui) {
-                    //console.log("Panel de acordeon a punto de activarse");
-                    //console.log(event);
-                    //console.log(ui);
+                    console.log("Panel de acordeon a punto de activarse");
+                    console.log(event);
+                    console.log(ui);
                 },
                 icons: { 'header': 'ui-icon-circle-plus', 'activeHeader': 'ui-icon-circle-minus' }
             };
