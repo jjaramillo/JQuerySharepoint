@@ -62,10 +62,64 @@
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-big.png" />
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-small.png" />
     <Content Include="Html Only\CloudSimpleSample\images\Logo.png" />
+    <Content Include="Html Only\css\excite-bike\images\animated-overlay.gif" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_diagonals-small_25_c5ddfc_40x40.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_diagonals-thick_20_e69700_40x40.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_diagonals-thick_22_1484e6_40x40.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_diagonals-thick_26_2293f7_40x40.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_flat_0_e69700_40x100.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_flat_0_e6b900_40x100.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_highlight-soft_100_f9f9f9_1x100.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-bg_inset-hard_100_eeeeee_1x100.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-icons_0a82eb_256x240.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-icons_0b54d5_256x240.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-icons_5fa5e3_256x240.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-icons_fcdd4a_256x240.png" />
+    <Content Include="Html Only\css\excite-bike\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Html Only\css\excite-bike\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Html Only\css\excite-bike\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Html Only\css\flick\images\animated-overlay.gif" />
+    <Content Include="Html Only\css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Html Only\css\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Html Only\css\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Html Only\css\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Html Only\css\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Html Only\css\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Html Only\css\flick\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Html Only\css\flick\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Html Only\css\ui-darkness\images\animated-overlay.gif" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Html Only\css\ui-darkness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Html Only\css\ui-darkness\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Html Only\css\ui-darkness\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Html Only\JQuery.UI\ColorAnimation.html" />
     <Content Include="Html Only\JQuery.UI\EasingAlgorithComparison.html" />
     <Content Include="Html Only\JQuery.UI\EffectSample.html" />
+    <Content Include="Html Only\JQuery.UI\Theming.html" />
     <Content Include="Html Only\JQuery.UI\ToogleUISample.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Accordion.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Buttons.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Datepicker.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Widget-Classes.html" />
     <Content Include="Html Only\JqueryRobot\css\robot.css" />
     <Content Include="Html Only\JqueryRobot\images\clouds-01.png" />
     <Content Include="Html Only\JqueryRobot\images\clouds-02.png" />
@@ -77,6 +131,8 @@
     <Content Include="Html Only\JqueryRobot\images\robot-torso.png" />
     <Content Include="Html Only\JqueryRobot\images\sun.png" />
     <Content Include="Html Only\JqueryRobot\index.html" />
+    <Content Include="Html Only\js\jquery-2.0.3.js" />
+    <Content Include="Html Only\js\jquery-ui-1.10.3.js" />
     <Content Include="Html Only\js\Plugins\bgpositionHook.js" />
     <Content Include="Html Only\Postcard\images\cloud1.png" />
     <Content Include="Html Only\Postcard\images\cloud2.png" />
@@ -112,6 +168,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery.UI Botones</title>
+    <link href="../../css/ui-darkness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="width:45%; height:45%; float:left;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo basico</h2>
+        <button id="basic-button">Hola Soy un boton!</button>
+    </div>
+    <div style="width:45%; height:45%; float:left; margin-left:5%;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo con opciones</h2>
+        <button id="complex-button">Boton Complejo. Usar Opciones de configuracion</button>
+        <br />
+        <div>
+            <label>Icono Primario</label>
+            <input type="text" id="primary-icon" />
+            <br />
+            <label>Icono Secundario</label>
+            <input type="text" id="secondary-icon" />
+            <br />
+            <label>Mostrar texto</label>
+            <input type="checkbox" checked="checked" id="show-text" />
+            <br />
+            <label>Texto del boton</label>
+            <input type="text" id="button-text" />
+        </div>
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#basic-button').button();
+            var complexButton = $('#complex-button').button(
+                { icons: { primary: 'ui-icon-carat-1-e', secondary: 'ui-icon-carat-1-w' } }
+                );
+            var primaryIcon = $('#primary-icon');
+            var secondaryIcon = $('#secondary-icon');
+            var showText = $('#show-text');
+            var buttonText = $('#button-text');
+
+            primaryIcon.change(function () {
+                complexButton.button('option', 'icons', { primary: primaryIcon.val(), secondary: secondaryIcon.val() });
+            });
+
+            secondaryIcon.change(function () {
+                complexButton.button('option', 'icons', { primary: primaryIcon.val(), secondary: secondaryIcon.val() });
+            });
+
+            showText.change(function () {
+                complexButton.button('option', 'text', showText.prop('checked'));
+            });
+
+            buttonText.change(function () {
+                complexButton.button('option', 'label', buttonText.val());
+            });
+
+        });
+    </script>
+</body>
+</html>

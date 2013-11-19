@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery.UI Acordeones</title>
+    <link href="../../css/ui-darkness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="width:45%; height:45%; float:left;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo basico</h2>
+        <div id="accordion-sample-1">
+            <h3>Encabezado 1</h3>
+            <div>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</div>
+            <h3>Encabezado 2</h3>
+            <div>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</div>
+        </div>
+    </div>
+    <div style="width:45%; height:45%; float:left; margin-left:5%;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo con opciones</h2>
+        <div id="accordion-sample-2" style="width:80%; float:left;">
+            <h3>Encabezado 1</h3>
+            <div>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</div>
+            <h3>Encabezado 2</h3>
+            <div>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</div>
+        </div>
+        <div style="float:left; width:20%;">
+            <label for="animation-type">Algoritmo de Easing</label>
+            <select id="animation-type" name="animation-type">
+                <option value="easeInOutBounce" selected="selected">easeInOutBounce</option>
+                <option value="linear">linear</option>
+                <option value="easeInCubic">easeInCubic</option>
+                <option value="easeOutSine">easeOutSine</option>
+            </select>
+            <label for="animation-duration">Duracion animacion</label>
+            <input type="text" max="5" id="animation-duration" name="animation-duration" value="2000" />
+            <label for="accordion-active">Activo</label><input type="checkbox" id="accordion-active" name="accordion-active" checked="checked" />
+        </div>
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var animationType2 = $('#animation-type');
+            var animationDuration = $('#animation-duration');
+            var accordionActive = $('#accordion-active');
+            $('#accordion-sample-1').accordion();
+            var options = {
+                // Se dispara una vez el acordeon es creado
+                active: 0,
+                // opciones de configuracion de animacion
+                animate:
+                    {
+                        easing: animationType2.val(),
+                        duration: parseInt(animationDuration.val())
+                    },
+                create: function (event, ui) {
+                    //console.log("Panel de acordeon creado");
+                    //console.log(event);
+                    //console.log(ui);
+                },
+                // se dispara despues de cambiar de panel
+                activate: function (event, ui) {
+                    //console.log("Panel de acordeon activado");
+                    //console.log(event);
+                    //console.log(ui);
+                },
+                // Se dispara antes de cambiar de panel
+                beforeActivate: function (event, ui) {
+                    //console.log("Panel de acordeon a punto de activarse");
+                    //console.log(event);
+                    //console.log(ui);
+                },
+                icons: { 'header': 'ui-icon-circle-plus', 'activeHeader': 'ui-icon-circle-minus' }
+            };
+            var accordionSample2 = $('#accordion-sample-2').accordion(options);
+            animationType2.change(function () {
+                // asignar una propiedad especifica a un accordeon construido
+                accordionSample2.accordion('option', 'animate', { easing: animationType2.val(), duration: parseInt(animationDuration.val()) });
+            });
+            accordionActive.change(function () {
+                accordionSample2.accordion('option', 'disabled', !accordionActive.prop('checked'));
+            });
+        });
+    </script>
+</body>
+</html>

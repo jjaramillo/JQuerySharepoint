@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery.UI - Datepicker</title>
+    <link href="../../css/ui-darkness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="width:45%; height:45%; float:left;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo basico</h2>
+        <input type="text" id="basic-datepicker" />
+    </div>
+    <div style="width:45%; height:45%; float:left; margin-left:5%;" class="ui-widget">
+        <h2 class="ui-widget-header">Ejemplo con opciones</h2>
+        <input type="text" id="complex-datepicker" />
+        <br />
+        <div>
+            <label>Fecha Seleccionada</label>
+            <input type="text" id="selected-date" />
+            <br />
+            <label>Formato de Fecha Seleccionada</label>
+            <input type="text" id="selected-date-format" />
+            <br />
+            <label>Animacion</label>
+            <select id="animation-type">
+                <option value="show">Show</option>
+                <option value="blind">Blind</option>
+                <option value="drop">Drop</option>
+                <option value="bounce">Bounce</option>
+                <option value="clip">Clip</option>
+                <option value="explode">Explode</option>
+                <option value="fold">Fold</option>
+                <option value="puff">Puff</option>
+                <option value="highlight">Highlight</option>
+                <option value="pulsate">Pulsate</option>
+                <option value="scale">Scale</option>
+                <option value="shake">Shake</option>
+                <option value="slide">Slide</option>
+                <option value="size">Size</option>
+            </select>
+            <br />
+            <label>Duracion Animacion</label>
+            <input type="text" id="animation-duration" />
+        </div>
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#basic-datepicker').datepicker();
+            var animationType = $('#animation-type');
+            var selectedDateFormat = $('#selected-date-format');
+            var animationDuration = $('#animation-duration');
+            var complexPicker = $('#complex-datepicker').datepicker(
+                {
+                    altField: '#selected-date',
+                    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                    showOtherMonths: true,
+                    yearRange: '1985:2013',
+                    showButtonPanel: true,
+                    changeYear: true,
+                    numberOfMonths: [1, 2],
+                    beforeShow: function (input, instance) {
+                        console.log('A punto de desplegar picker');
+                        console.log(input);
+                        console.log(instance);
+                    },
+                    onSelect: function (date, instance) {
+                        console.log('Valor Seleccionado');
+                        console.log(date);
+                        console.log(instance);
+                    }
+                });
+            
+            selectedDateFormat.change(function () {
+                complexPicker.datepicker('option', 'altFormat', selectedDateFormat.val());
+            });
+            animationType.change(function ()
+            {
+                complexPicker.datepicker('option', 'showAnim', animationType.val());
+            });
+            animationDuration.change(function ()
+            {
+                complexPicker.datepicker('option', 'duration', parseInt(animationDuration.val()));
+            });
+            //var secondaryIcon = $('#secondary-icon');
+            //var showText = $('#show-text');
+            //var buttonText = $('#button-text');
+
+            //primaryIcon.change(function () {
+            //    complexButton.button('option', 'icons', { primary: primaryIcon.val(), secondary: secondaryIcon.val() });
+            //});
+
+            //secondaryIcon.change(function () {
+            //    complexButton.button('option', 'icons', { primary: primaryIcon.val(), secondary: secondaryIcon.val() });
+            //});
+
+            //showText.change(function () {
+            //    complexButton.button('option', 'text', showText.prop('checked'));
+            //});
+
+            //buttonText.change(function () {
+            //    complexButton.button('option', 'label', buttonText.val());
+            //});
+
+        });
+    </script>
+</body>
+</html>
