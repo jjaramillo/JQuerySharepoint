@@ -82,21 +82,41 @@
     <script type="text/javascript">
         $(document).ready(
             function () {
-
+                var divToPaint = $('#picker');
                 $('#basic-slider-horizontal').slider();
                 $('#basic-slider-vertical').slider({ orientation: 'vertical' });
 
                 var donationValue = $('#donation-value').disableSelection();
                 var donationPicker = $('#picker-donation').slider({ min: 100, max: 1000, step: 15, slide: function (event, ui) { donationValue.val(formatDollar(ui.value)); } });
-                var redSlider = $('#slider-red').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
-                var greenSlider = $('#slider-green').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
-                var blueSlider = $('#slider-blue').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
+                var redSlider = $('#slider-red').slider({
+                    max: 255, min: 0, range: "min",
+                    slide: function (event, ui) {
+                        Paint(ui.value, greenSlider.slider('option', 'value'), blueSlider.slider('option', 'value'), divToPaint);
+                    }
+                });
+                var greenSlider = $('#slider-green').slider({
+                    max: 255, min: 0, range: "min",
+                    slide: function (event, ui) {
+                        Paint(redSlider.slider('option', 'value'), ui.value, blueSlider.slider('option', 'value'), divToPaint);
+                    }
+                });
+                var blueSlider = $('#slider-blue').slider({
+                    max: 255, min: 0, range: "min",
+                    slide: function (event, ui) {
+                        Paint(redSlider.slider('option', 'value'), greenSlider.slider('option', 'value'), ui.value, divToPaint);
+                    }
+                });
             });
         function formatDollar(num) {
             var p = num.toFixed(2).split(".");
             return "$" + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
                 return num + (i && !(i % 3) ? "," : "") + acc;
             }, "") + "." + p[1];
+        }
+
+        function Paint(red, green, blue, elemento)
+        {
+            elemento.css('background-color','rgb('+red+',' + green+ ',' + blue+')');
         }
     </script>
 </body>

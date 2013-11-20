@@ -95,7 +95,7 @@
         </div>
     </div>
     <div id="modal-dialog" title="Soy una modal! Tengo Overlay">
-        Soy una Modal personalizable!
+        Soy una Modal personalizable!       
     </div>
     <div id="standard-dialog" title="Soy el titulo del dialogo...">
         Soy un dialogo generico y aburrido
@@ -133,11 +133,11 @@
         showAnimationType.change(function () { modaldDialog.dialog('option', 'show', { effect: showAnimationType.val(), duration: parseInt(animationSpeed.val()) }); });
         closeText.change(function () { modaldDialog.dialog('option', 'closeText', closeText.val()); });
 
-        //modaldDialog.dialog('option', 'buttons', [
-        //    { text: 'Soy un boton!', click: function () { console.log('Click en el boton 1'); modaldDialog.dialog('close'); } },
-        //    { text: 'Soy un boton que cierra y ya :(', click: function () { modaldDialog.dialog('close'); }}
-        // ]
-        //);
+        modaldDialog.dialog('option', 'buttons', [
+            { text: 'Soy un boton!', click: function () { console.log('Click en el boton 1'); modaldDialog.dialog('close'); } },
+            { text: 'Soy un boton que cierra y ya :(', click: function () { modaldDialog.dialog('close'); }}
+         ]
+        );
 
     </script>
 </body>
