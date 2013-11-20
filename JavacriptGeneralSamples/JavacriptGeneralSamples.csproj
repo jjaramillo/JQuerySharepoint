@@ -111,6 +111,7 @@
     <Content Include="Html Only\css\ui-darkness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Html Only\css\ui-darkness\jquery-ui-1.10.3.custom.css" />
     <Content Include="Html Only\css\ui-darkness\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Html Only\img\ZeldaFairy1080P.jpg" />
     <Content Include="Html Only\JQuery.UI\ColorAnimation.html" />
     <Content Include="Html Only\JQuery.UI\EasingAlgorithComparison.html" />
     <Content Include="Html Only\JQuery.UI\EffectSample.html" />
@@ -124,6 +125,7 @@
     <Content Include="Html Only\JQuery.UI\Widgets\Slider.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Spinner.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Widget-Classes.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\ZoomControl.html" />
     <Content Include="Html Only\JqueryRobot\css\robot.css" />
     <Content Include="Html Only\JqueryRobot\images\clouds-01.png" />
     <Content Include="Html Only\JqueryRobot\images\clouds-02.png" />

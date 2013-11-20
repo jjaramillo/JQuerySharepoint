@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../css/ui-darkness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .image {
+            width:20%;
+            height:20%;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:400px; width:800px; overflow:hidden">
+        <div id="pic-container">
+            <img src="../../img/ZeldaFairy1080P.jpg" id="picture" />
+        </div>
+    </div>
+    <div id="zoomCtrl" style="width:400px;"></div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {            
+            var image = $('#picture');
+            image.css('cursor', 'pointer');
+            var pictureContainer = $('#pic-container');
+            var picWidth = image.width();
+            var picHeight = image.height();
+            image.addClass('image');
+            pictureContainer.width(picWidth);
+            pictureContainer.height(picHeight);
+
+            var zoomCtrl = $('#zoomCtrl')
+                .slider(
+                {
+                    min: 20,
+                    max: 100,
+                    slide: function (event, ui)
+                    {
+                        ChangeSize(ui.value, ui.value, image);
+                    }
+                });
+        })
+        function ChangeSize(widthPercentage, heightPercentage, element)
+        {
+            element.css(
+                {
+                    'width': widthPercentage + '%',
+                    'height': heightPercentage + '%'
+                });
+        }
+    </script>
+</body>
+</html>
