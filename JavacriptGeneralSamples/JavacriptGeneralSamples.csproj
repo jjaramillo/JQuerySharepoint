@@ -119,6 +119,10 @@
     <Content Include="Html Only\JQuery.UI\Widgets\Accordion.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Buttons.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Datepicker.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Dialog.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Menu.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Slider.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Spinner.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Widget-Classes.html" />
     <Content Include="Html Only\JqueryRobot\css\robot.css" />
     <Content Include="Html Only\JqueryRobot\images\clouds-01.png" />

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            font-size: 10px;
+        }
+
+        .floating-pane {
+            float: left;
+            width: 45%;
+            height: 40%;
+        }
+
+            .floating-pane:nth-child(even) {
+                margin-left: 5%;
+            }
+    </style>
+
+    <link href="../../css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" /> >
+</head>
+<body>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">
+            Ejeplo de dialogo sin opciones de configuracion.
+        </div>
+        <div class="ui-widget-content">
+            <ul id="menu"> <li> <a href="#"> Item 1</a> </li> <li> <a href="#"> Item 2</a> </li> <li> <a href="#"> Item 3</a> <ul> <li> <a href="#"> Item 3-1</a> </li> <li> <a href="#"> Item 3-2</a> </li> <li> <a href="#"> Item 3-3</a> </li> <li> <a href="#"> Item 3-4</a> </li> <li> <a href="#"> Item 3-5</a> </li> </ul> </li> <li> <a href="#"> Item 4</a> </li> <li> <a href="#"> Item 5</a> </li> </ul>
+        </div>
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#menu').menu();
+        }); </script>
+</body>
+</html>

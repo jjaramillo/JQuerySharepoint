@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery.UI - Dialogos</title>
+    <link href="../../css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            font-size: 10px;
+        }
+
+        .floating-pane {
+            float: left;
+            width: 45%;
+            height: 40%;
+        }
+
+            .floating-pane:nth-child(even) {
+                margin-left: 5%;
+            }
+
+        #modal-dialog, #standard-dialog {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">
+            Ejeplo de dialogo sin opciones de configuracion.
+        </div>
+        <div class="ui-widget-content">
+            <button id="show-standard-dialog">Desplegar dialogo</button>
+
+        </div>
+    </div>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">
+            Ejemplo de modal
+        </div>
+        <div class="ui-widget-content">
+            <div style="margin:5px;">
+                <label>Alto Maximo</label><input type="text" id="Max-Height" />
+                <br />
+                <label>Ancho Maximo</label><input type="text" id="Max-Width" />
+                <br />
+                <label>Velocidad de la animacion</label><input type="text" id="Animation-Speed" value="1000" />
+                <br />
+                <label>Toltip del boton cerrar</label><input type="text" id="Close-text" value="Cerrar" />
+                <br />
+                <label>Se puede arrastrar</label><input type="checkbox" id="IsDragable" checked="checked" />
+                <br />
+                <label>Se puede cambiar de tamanio</label><input type="checkbox" id="IsResizable" checked="checked" />
+                <br />
+                <label>Cerrar al presionar 'Escape'</label><input type="checkbox" id="CloseOnEscape" checked="checked" />
+                <br />
+                <label>Animacion al Cerrar</label>
+                <select id="close-animation-type">
+                    <option value="show">Show</option>
+                    <option value="blind">Blind</option>
+                    <option value="drop">Drop</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="clip">Clip</option>
+                    <option value="explode">Explode</option>
+                    <option value="fold">Fold</option>
+                    <option value="puff">Puff</option>
+                    <option value="highlight">Highlight</option>
+                    <option value="pulsate">Pulsate</option>
+                    <option value="scale">Scale</option>
+                    <option value="shake">Shake</option>
+                    <option value="slide">Slide</option>
+                    <option value="size">Size</option>
+                </select>
+                <br />
+                <label>Animacion al Desplegar</label>
+                <select id="show-animation-type">
+                    <option value="show">Show</option>
+                    <option value="blind">Blind</option>
+                    <option value="drop">Drop</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="clip">Clip</option>
+                    <option value="explode">Explode</option>
+                    <option value="fold">Fold</option>
+                    <option value="puff">Puff</option>
+                    <option value="highlight">Highlight</option>
+                    <option value="pulsate">Pulsate</option>
+                    <option value="scale">Scale</option>
+                    <option value="shake">Shake</option>
+                    <option value="slide">Slide</option>
+                    <option value="size">Size</option>
+                </select>
+                <br />
+                <button id="show-modal-dialog">Ver modal!</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="modal-dialog" title="Soy una modal! Tengo Overlay">
+        Soy una Modal personalizable!
+    </div>
+    <div id="standard-dialog" title="Soy el titulo del dialogo...">
+        Soy un dialogo generico y aburrido
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        var standardDialog = $('#standard-dialog').dialog({ autoOpen: false });
+        var modaldDialog = $('#modal-dialog').dialog({ autoOpen: false, modal: true });
+        var maxHeight = $('#Max-Height');
+        var maxWidth = $('#Max-Width');
+        var isDraggable = $('#IsDragable');
+        var isResizable = $('#IsResizable');
+        var animationSpeed = $('#Animation-Speed');
+        var closeAnimationType = $('#close-animation-type');
+        var showAnimationType = $('#show-animation-type');
+        var closeOnEscape = $('#CloseOnEscape');
+        var closeText = $('#Close-text');
+
+        $('#show-standard-dialog').button().click(function () { standardDialog.dialog('open'); });
+        $('#show-modal-dialog').button().click(function () { modaldDialog.dialog('open'); });
+
+        maxHeight.change(function () { modaldDialog.dialog('option', 'maxHeight', parseInt(maxHeight.val())) });
+        maxWidth.change(function () { modaldDialog.dialog('option', 'maxWidth', parseInt(maxWidth.val())) });
+        isDraggable.change(function () { modaldDialog.dialog('option', 'draggable', isDraggable.prop('checked')) });
+        isResizable.change(function () { modaldDialog.dialog('option', 'resizable', isResizable.prop('checked')) });
+        closeOnEscape.change(function () { modaldDialog.dialog('option', 'closeOnEscape', closeOnEscape.prop('checked')) })
+
+        animationSpeed.change(function () {
+            modaldDialog.dialog('option', 'show', { effect: showAnimationType.val(), duration: parseInt(animationSpeed.val()) });
+            modaldDialog.dialog('option', 'hide', { effect: closeAnimationType.val(), duration: parseInt(animationSpeed.val()) });
+        });
+
+        closeAnimationType.change(function () { modaldDialog.dialog('option', 'hide', { effect: closeAnimationType.val(), duration: parseInt(animationSpeed.val()) }); });
+        showAnimationType.change(function () { modaldDialog.dialog('option', 'show', { effect: showAnimationType.val(), duration: parseInt(animationSpeed.val()) }); });
+        closeText.change(function () { modaldDialog.dialog('option', 'closeText', closeText.val()); });
+
+        //modaldDialog.dialog('option', 'buttons', [
+        //    { text: 'Soy un boton!', click: function () { console.log('Click en el boton 1'); modaldDialog.dialog('close'); } },
+        //    { text: 'Soy un boton que cierra y ya :(', click: function () { modaldDialog.dialog('close'); }}
+        // ]
+        //);
+
+    </script>
+</body>
+</html>

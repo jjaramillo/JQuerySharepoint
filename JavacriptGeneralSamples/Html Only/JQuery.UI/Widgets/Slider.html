@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery.UI</title>
+    <link href="../../css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            font-size: 10px;
+        }
+
+        .floating-pane {
+            width: 45%;
+            height: 40%;
+        }
+
+        #slider-red .ui-slider-range {
+            background: #ef2929;
+        }
+
+        #slider-red .ui-slider-handle {
+            border-color: #ef2929;
+        }
+
+        #slider-green .ui-slider-range {
+            background: #8ae234;
+        }
+
+        #slider-green .ui-slider-handle {
+            border-color: #8ae234;
+        }
+
+        #slider-blue .ui-slider-range {
+            background: #729fcf;
+        }
+
+        #slider-blue .ui-slider-handle {
+            border-color: #729fcf;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">Ejemplo basico</div>
+        <div class="ui-widget-content">
+            <div style="margin:15px;">
+                <div id="basic-slider-vertical"></div>
+            </div>
+        </div>
+    </div>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">Ejemplo - Slider Horizontal</div>
+        <div class="ui-widget-content">
+            <div style="margin:15px;">
+                <div id="basic-slider-horizontal"></div>
+            </div>
+        </div>
+    </div>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">Aplicacion pratica - selector de colores</div>
+        <div class="ui-widget-content" style="height:70px;">
+            <div style="margin:15px; width:70%; float:left;">
+                <div id="slider-red"></div>
+                <div id="slider-green" style="margin-top:5px;"></div>
+                <div id="slider-blue" style="margin-top:5px;"></div>
+            </div>
+            <div style="margin:5px; float:left; background-color:rgb(0,0,0); width:23%; height:55px;" id="picker">
+
+            </div>
+        </div>
+    </div>
+    <div class="floating-pane ui-widget">
+        <div class="ui-widget-header">Aplicacion descarada - El selector de donacion</div>
+        <div class="ui-widget-content">
+            <div style="margin:15px;">
+                <label>Valor de donacion</label><input type="text" value="$100.00" id="donation-value" />
+                <div id="picker-donation"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-2.0.3.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+
+                $('#basic-slider-horizontal').slider();
+                $('#basic-slider-vertical').slider({ orientation: 'vertical' });
+
+                var donationValue = $('#donation-value').disableSelection();
+                var donationPicker = $('#picker-donation').slider({ min: 100, max: 1000, step: 15, slide: function (event, ui) { donationValue.val(formatDollar(ui.value)); } });
+                var redSlider = $('#slider-red').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
+                var greenSlider = $('#slider-green').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
+                var blueSlider = $('#slider-blue').slider({ max: 255, min: 0, range: "min", slide: function (event, ui) { console.log(ui); } });
+            });
+        function formatDollar(num) {
+            var p = num.toFixed(2).split(".");
+            return "$" + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
+                return num + (i && !(i % 3) ? "," : "") + acc;
+            }, "") + "." + p[1];
+        }
+    </script>
+</body>
+</html>
