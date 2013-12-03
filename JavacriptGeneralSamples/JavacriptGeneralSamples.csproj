@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,6 +61,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Html Only\Ajax\AutoComplete.html" />
+    <Content Include="Html Only\Ajax\GEOIP.html" />
     <Content Include="Html Only\AnimationControlSample.html" />
     <Content Include="Html Only\CloudSimpleSample\css\tut.css" />
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-big.png" />
@@ -124,6 +130,7 @@
     <Content Include="Html Only\JQuery.UI\Widgets\Menu.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Slider.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Spinner.html" />
+    <Content Include="Html Only\JQuery.UI\Widgets\Tooltip.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\Widget-Classes.html" />
     <Content Include="Html Only\JQuery.UI\Widgets\ZoomControl.html" />
     <Content Include="Html Only\JqueryRobot\css\robot.css" />
@@ -140,6 +147,8 @@
     <Content Include="Html Only\js\jquery-2.0.3.js" />
     <Content Include="Html Only\js\jquery-ui-1.10.3.js" />
     <Content Include="Html Only\js\Plugins\bgpositionHook.js" />
+    <Content Include="Html Only\js\Plugins\images\loading.gif" />
+    <Content Include="Html Only\js\Plugins\jquery.loadmask.js" />
     <Content Include="Html Only\Postcard\images\cloud1.png" />
     <Content Include="Html Only\Postcard\images\cloud2.png" />
     <Content Include="Html Only\Postcard\images\cloud3.png" />
@@ -161,10 +170,17 @@
     <Content Include="Html Only\js\JavascriptGeneralSamples.js" />
     <Content Include="Html Only\js\VariablesSamples.js" />
     <Content Include="Html Only\CloudSimpleSample\cloud.html" />
+    <Content Include="Html Only\Ajax\XmlHttpRequest.html" />
+    <Content Include="Services\JSONSampleService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISampleService.cs" />
+    <Compile Include="Services\JSONSampleService.svc.cs">
+      <DependentUpon>JSONSampleService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
