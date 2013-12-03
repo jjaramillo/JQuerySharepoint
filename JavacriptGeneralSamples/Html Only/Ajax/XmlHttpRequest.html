@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ajax - XMLHttpRequest</title>
+    <script type="text/javascript">
+        var request = new XMLHttpRequest();
+        var container;
+        request.onreadystatechange = function () {
+            switch (request.readyState) {
+                case 0:
+                    console.log('Open listo');
+                    break;
+                case 1:
+                    console.log('Send listo');
+                    break;
+                case 2:
+                    console.log('Recibiendo respuesta');
+                    break;
+                case 3:
+                    console.log('Respuesta finalizada');
+                    container.innerHTML = request.responseText;
+                    break;
+            }
+        }
+        function loadPageAsync(url, container)
+        {            
+            request.open('GET', url, true);
+            request.send(null);
+            
+        }
+
+        function loadUrlContent()
+        {
+            var textbox = document.getElementById('url');
+            var url = textbox.value;
+            var targetDiv = document.getElementById('target-div');
+            container = targetDiv;
+            loadPageAsync(url, targetDiv);
+        }
+    </script>
+</head>
+<body>
+    <button id="trigger" onclick="loadUrlContent();">Cargar Contenido</button>
+    <input type="text" id="url" />
+    <div id="target-div">
+
+    </div>
+</body>
+</html>

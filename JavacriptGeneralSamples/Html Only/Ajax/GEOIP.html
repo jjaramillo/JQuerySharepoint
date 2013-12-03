@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            font-size: 11px;
+        }
+    </style>
+    <link href="../css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="../js/jquery-2.0.3.js"></script>
+    <script src="../js/Plugins/jquery.loadmask.js"></script>
+    <script src="../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var select = $('#countries');
+            var countryDataContainer = $('#countryInfo');
+            var countrySelector = $('#country-selector');
+            select.change(function () {
+                countrySelector.mask('Cargando...');
+                var ajaxRequest = $.get('http://api.geonames.org/countryInfoJSON', { username: 'jjaramillo', country: select.val(), lang: 'es' }
+                    , function (result, status, jqXHR) {
+                        console.log('Llamdo al servicio exitoso, control desde la funcion $.get'+ result);
+                    }
+                );
+
+                ajaxRequest.done(function () { console.log('Llamado exitoso controlado desde el done'); });
+                ajaxRequest.always(function () { console.log('Llamado terminado controlado desde el always, el resultado del llamado fue:' + ajaxRequest.statusText); });
+                ajaxRequest.fail(function () { console.log('Llamado fracasado controlado desde el fail, el resultado del llamado fue:' + ajaxRequest.statusText); });
+                ajaxRequest.success(function () { console.log('Llamado exitoso controlado desde el success del jqXHR'); });
+                $.ajax(
+                    {
+                        url: 'http://api.geonames.org/countryInfoJSON',
+                        dataType: 'json',
+                        data: {
+                            username: 'jjaramillo',
+                            country: select.val(),
+                            lang: 'es'
+                        },
+                        success: function (result, status) {
+                            countryDataContainer.children('#flipCode').text(result.geonames[0].fipsCode);
+                            countryDataContainer.children('#countryCode').text(result.geonames[0].countryCode);
+                            countryDataContainer.children('#countryName').text(result.geonames[0].countryName);
+                            countryDataContainer.children('#countryCapital').text(result.geonames[0].capital);
+                            countryDataContainer.children('#countryContinent').text(result.geonames[0].continentName);
+                            countryDataContainer.children('#countryCurrency').text(result.geonames[0].currencyCode);
+                            countryDataContainer.children('#countryPopulation').text(result.geonames[0].population);
+                            countryDataContainer.children('#countryArea').text(result.geonames[0].areaInSqKm);
+                            console.log(result);
+                            countrySelector.unmask();
+                        },
+                        type: 'POST',
+                        crossDomanin: true
+                    }
+                );
+            });
+            //$(document).ajaxSuccess(function (event, xhr, settings)
+            //{
+            //    console.log(event);
+            //    console.log(xhr);
+            //    console.log(settings);
+            //});
+            //$(document).ajaxComplete(function () {
+            //    console.log('Termine la peticion de ajax');
+
+            //});
+            $.ajax(
+                {
+                    global: true,
+                    url: 'http://api.geonames.org/countryInfoJSON',
+                    dataType: 'json',
+                    data: {
+                        username: 'jjaramillo'
+                    },
+                    success: function (result, status) {
+
+                        for (var index in result.geonames) {
+                            $('<option value=' + result.geonames[index].countryCode + '>' + result.geonames[index].countryName + '</option>').appendTo(select);
+                        }
+                    },
+                    error: function (request, errorMessage) {
+                        console.log(errorMessage);
+                    }
+                    , type: 'POST'
+                    , crossDomain: true
+
+                }
+            );
+        });
+    </script>
+    <div style="width:500px;">
+        <div class="ui-widget" id="country-selector">
+            <div class="ui-widget-header">Selector de Pais</div>
+            <div class="ui-widget-content">
+                <label>Seleccione el pais:</label>
+                <select id="countries">
+                    <option value="0">[Seleccione]</option>
+                </select>
+            </div>
+        </div>
+        <div class="ui-widget" id="country-information">
+            <div class="ui-widget-header">
+                Informacion del Pais
+            </div>
+            <div id="countryInfo" class="ui-widget-content">
+                <label>Codigo Fips: </label><span id="flipCode"></span><br />
+                <label>Codigo: </label><span id="countryCode"></span><br />
+                <label>Nombre: </label><span id="countryName"></span><br />
+                <label>Moneda: </label><span id="countryCurrency"></span><br />
+                <label>Capital: </label><span id="countryCapital"></span><br />
+                <label>Contienente: </label><span id="countryContinent"></span><br />
+                <label>Poblacion: </label><span id="countryPopulation"></span><br />
+                <label>Area (km ^2): </label><span id="countryArea"></span><br />
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
