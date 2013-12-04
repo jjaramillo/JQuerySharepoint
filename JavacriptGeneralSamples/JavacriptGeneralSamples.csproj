@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="Html Only\Ajax\AutoComplete.html" />
     <Content Include="Html Only\Ajax\GEOIP.html" />
+    <Content Include="Html Only\Ajax\NonRestfulAutocomplete.html" />
     <Content Include="Html Only\AnimationControlSample.html" />
     <Content Include="Html Only\CloudSimpleSample\css\tut.css" />
     <Content Include="Html Only\CloudSimpleSample\images\bg-clouds-big.png" />
@@ -172,6 +173,7 @@
     <Content Include="Html Only\CloudSimpleSample\cloud.html" />
     <Content Include="Html Only\Ajax\XmlHttpRequest.html" />
     <Content Include="Services\JSONSampleService.svc" />
+    <Content Include="Services\NonRestfulJSONSampleService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +182,9 @@
     <Compile Include="Services\ISampleService.cs" />
     <Compile Include="Services\JSONSampleService.svc.cs">
       <DependentUpon>JSONSampleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\NonRestfulJSONSampleService.svc.cs">
+      <DependentUpon>NonRestfulJSONSampleService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

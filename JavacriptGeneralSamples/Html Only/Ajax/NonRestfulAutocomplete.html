@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Autocomplete con rest</title>
+    <link href="../css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="ui-widget">
+        <div class="ui-widget-header">
+            Buscador de Usuarios
+        </div>
+        <div class="ui-widget-content">
+            <input type="text" id="name-search" />
+        </div>
+    </div>
+    <script src="../js/jquery-2.0.3.js"></script>
+    <script src="../js/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript">
+        var autocomplete = $('#name-search');
+        autocomplete.autocomplete(
+            {
+                source: function (request, response) {
+                    $.ajax(
+                        {
+                            url:'/Services/NonRestfulJSONSampleService.svc/GetByName',
+                            data: JSON.stringify( { name: request.term }),
+                            success: function (result, status) {
+                                response(
+                                    $.map(result.d, function (item) {
+                                        return {
+                                            label: item.Name,
+                                            value: item.Name
+                                        }
+                                    }));
+                            }, 
+                            dataType: 'json',
+                            contentType: 'application/json; charset=UTF-8',
+                            type: 'POST'
+                        }
+        
+                        );
+                },
+                minLenght: 2
+            }
+        );
+    </script>
+</body>
+</html>
